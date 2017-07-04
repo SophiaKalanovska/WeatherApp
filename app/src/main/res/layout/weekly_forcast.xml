@@ -1,114 +1,111 @@
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.example.sophiakalanovska.myapplication.Activities.MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <include
+            android:id = "@+id/weather_bar"
+            layout ="@layout/weather_bar" />
+
+        <RelativeLayout
 
 
-    <include
-        android:id = "@+id/weather_bar"
-        layout ="@layout/weather_bar" />
-
-    <RelativeLayout
-
-
-        android:id= "@+id/weather_today"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:background="@android:color/holo_blue_light"
-        android:clickable="true"
-        >
-
-
-        <TextView
-            android:id="@+id/textToday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            tools:text = "Today, 20.06.2017"
-            android:paddingTop="16dp"
-            android:paddingLeft="16dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-            android:textColor="@android:color/background_light"
-            android:textSize="18sp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_toLeftOf="@+id/imageView"
-            android:layout_toStartOf="@+id/imageView"
-            android:layout_marginRight="12dp"
-            android:layout_marginEnd="12dp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width= "162dp"
-            android:layout_height="115dp"
-            app:srcCompat="@drawable/art_clear"
-            android:gravity="right"
-            android:layout_below="@id/textToday"
-            android:layout_alignParentRight="true"
-            />
-
-        <TextView
-            android:id="@+id/textDescription"
+            android:id= "@+id/weather_today"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            tools:text = "description"
-            android:layout_margin="16dp"
-            android:textColor="@android:color/background_light"
-            android:layout_alignStart="@+id/imageView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/imageView" />
-
-
-
-
-        <TextView
-            android:id="@+id/maxtemperatureToday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text = "25° "
             android:paddingLeft="16dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display4"
-            android:textColor="@android:color/background_light"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="56sp"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/textToday"
-            android:layout_alignStart="@+id/textToday" />
-
-        <TextView
-            android:id="@+id/mintemperatureToday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text = "12°"
-            android:paddingLeft="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/background_light"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_alignBottom="@+id/textDescription"
-            android:layout_alignLeft="@+id/maxtemperatureToday"
-            android:layout_alignStart="@+id/maxtemperatureToday" />
+            android:paddingRight="16dp"
+            android:background="@android:color/holo_blue_light"
+            android:clickable="true"
+            >
 
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text = "Today, 20.06.2017"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_toLeftOf="@+id/imageView"
+                android:layout_toStartOf="@+id/imageView"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width= "162dp"
+                android:layout_height="115dp"
+                app:srcCompat="@drawable/art_clear"
+                android:gravity="right"
+                android:layout_below="@id/textToday"
+                android:layout_alignParentRight="true"
+                />
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text = "description"
+                android:layout_margin="16dp"
+                android:textColor="@android:color/background_light"
+                android:layout_alignStart="@+id/imageView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/imageView" />
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/sixdays"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical">
-    </android.support.v7.widget.RecyclerView>
+
+
+            <TextView
+                android:id="@+id/maxtemperatureToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text = "25° "
+                android:paddingLeft="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                android:textColor="@android:color/background_light"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="56sp"
+                android:layout_centerVertical="true"
+                android:layout_alignLeft="@+id/textToday"
+                android:layout_alignStart="@+id/textToday" />
+
+            <TextView
+                android:id="@+id/mintemperatureToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text = "12°"
+                android:paddingLeft="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@android:color/background_light"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_alignBottom="@+id/textDescription"
+                android:layout_alignLeft="@+id/maxtemperatureToday"
+                android:layout_alignStart="@+id/maxtemperatureToday" />
+
+
+        </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sixdays"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+        </android.support.v7.widget.RecyclerView>
+
 
 
 </LinearLayout>

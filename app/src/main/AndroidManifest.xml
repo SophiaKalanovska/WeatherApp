@@ -17,11 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Activities.SecondScreenActivity"
-            android:label="@string/details"
-            android:parentActivityName=".Activities.MainActivity" >
-        </activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"
