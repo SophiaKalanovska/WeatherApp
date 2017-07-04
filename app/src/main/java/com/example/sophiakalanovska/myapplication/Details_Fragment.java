@@ -81,8 +81,10 @@ public class Details_Fragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("sofi", "onOptionsItemSelected() called with: item = [" + item + "]");
-       // item.getItemId() == android.R.id.home
+        if (item.getItemId() == android.R.id.home){
+            getActivity().onBackPressed();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
