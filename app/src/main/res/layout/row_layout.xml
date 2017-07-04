@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:contextClickable="true">
+
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_clear"
+        tools:text = "Title"
+        android:paddingLeft="16dp"
+        tools:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingTop="0dp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textAlignment="viewStart"
+        android:gravity="top|left"
+        tools:gravity="right"
+        android:drawablePadding="16dp"
+        android:layout_alignBaseline="@+id/textmaxtemp"
+        android:layout_alignBottom="@+id/textmaxtemp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif-condensed"
+        android:foregroundGravity="bottom" />
+
+    <TextView
+        android:id="@+id/textDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|left"
+        tools:text = "description"
+        android:paddingLeft="64dp"
+        android:layout_below="@+id/textmaxtemp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="8dp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-condensed" />
+
+    <TextView
+        android:id="@+id/textmintemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        tools:text = "12 ℃"
+        android:layout_alignParentRight="true"
+        android:paddingRight="40dp"
+        android:layout_below="@+id/textmaxtemp"
+        android:layout_alignParentLeft="true"
+        android:paddingBottom="8dp"
+        android:fontFamily="sans-serif-condensed" />
+
+    <TextView
+        android:id="@+id/textmaxtemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        tools:text = "25 ℃"
+        android:textSize="18sp"
+        android:paddingTop="16dp"
+        android:paddingRight="40dp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:fontFamily="sans-serif-condensed"
+        android:drawablePadding="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@android:color/holo_blue_light"
+    android:clickable="true"
+    app:logo="@drawable/ic_logo"
+    android:elevation="4dp">
+
+    <Switch
+        android:id="@+id/switch_b"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:showText="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textOn="F˚"
+        android:textOff="C˚"
+        android:textColor="@android:color/background_light"
+        android:textColorLink="@android:color/background_light"
+        >
+    </Switch>
+
+</android.support.v7.widget.Toolbar>
+
+
