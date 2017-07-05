@@ -8,6 +8,9 @@
     android:orientation="vertical"
     tools:context="com.example.sophiakalanovska.myapplication.Activities.MainActivity">
 
+    <include
+        android:id = "@+id/weather_bar"
+        layout ="@layout/weather_bar" />
 
 <FrameLayout
     android:id="@+id/container"

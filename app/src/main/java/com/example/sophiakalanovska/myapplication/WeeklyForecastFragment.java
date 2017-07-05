@@ -28,7 +28,7 @@ import java.util.List;
 
 public class WeeklyForecastFragment extends Fragment implements RecyclerAdapter.DayClickListener {
 
-    private Toolbar toolbar;
+
     private RecyclerView recyclerview;
     private RecyclerAdapter recyclerAdapter;
     private Settings settings;
@@ -56,7 +56,6 @@ public class WeeklyForecastFragment extends Fragment implements RecyclerAdapter.
 
 
         WeeklyForecastFragment fragment = new WeeklyForecastFragment();
-
         return fragment;
     }
 
@@ -65,24 +64,10 @@ public class WeeklyForecastFragment extends Fragment implements RecyclerAdapter.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.weekly_forcast, container, false);
-        settings = new Settings();
-        data = new DataRepository(settings);
-        toolbar = (Toolbar) rootView.findViewById(R.id.weather_bar);
-        toolbar.setTitle("");
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        settings = WeatherApplication.getSettings();
+        data = WeatherApplication.getData();
 
 
-        final Switch toggle = (Switch) rootView.findViewById(R.id.switch_b);
-        toggle.setChecked(settings.isFahrenheit());
-        toggle.setOnCheckedChangeListener
-                (new CompoundButton.OnCheckedChangeListener() {
-                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                         settings.setFahrenheit(isChecked);
-                         data.getDays(callBack);
-                     }
-                 }
-
-                );
 
 
         recyclerview = (RecyclerView) rootView.findViewById(R.id.sixdays);
@@ -95,8 +80,10 @@ public class WeeklyForecastFragment extends Fragment implements RecyclerAdapter.
         image = (ImageView) rootView.findViewById(R.id.imageView);
 
         callBack = new DataRepository.CallBack() {
+
             @Override
             public void recieveDays(List<Day> days) {
+
                 WeeklyForecastFragment.this.days = days;
                 textDescription.setText(days.get(0).getDescription());
                 image.setImageResource(Icon.bigIcon(days.get(0).getImage()));
@@ -106,9 +93,8 @@ public class WeeklyForecastFragment extends Fragment implements RecyclerAdapter.
                 recyclerAdapter = new RecyclerAdapter(days.subList(1, days.size()), getContext(), WeeklyForecastFragment.this);
                 recyclerview.setAdapter(recyclerAdapter);
 
-            }
+                }
         };
-        data.getDays(callBack);
 
 
         View btnNextScreen = rootView.findViewById(R.id.weather_today);
@@ -135,4 +121,18 @@ public class WeeklyForecastFragment extends Fragment implements RecyclerAdapter.
         ((MainActivity) getActivity()).openDetails(day);
 
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        data.addCallBack(callBack);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        data.removeCallBack(callBack);
+    }
+
+
 }

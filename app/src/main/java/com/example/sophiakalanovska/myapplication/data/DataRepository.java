@@ -29,6 +29,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DataRepository {
     private static final String TAG = "DataRepository";
     private Settings settings;
+    private List<CallBack> callBacks = new ArrayList<>();
+    private List<Day> days = new ArrayList<>();
+
+    public void addCallBack(CallBack callBack) {
+        callBacks.add(callBack);
+        if (!days.isEmpty()) {
+
+            callBack.recieveDays(days);
+        }
+    }
+
+    public void removeCallBack(CallBack callBack) {
+        callBacks.remove(callBack);
+    }
+
     public interface CallBack{
         public void recieveDays(List<Day> days);
 
@@ -53,8 +68,7 @@ public class DataRepository {
     }
 
     private List<Day> transform(ApiResponse response){
-
-        List<Day> days = new ArrayList<>()  ;
+        List<Day> days = new ArrayList<Day>();
         List<Forecast> r  = response.getList();
         Converter conv = new Converter();
 
@@ -73,15 +87,18 @@ public class DataRepository {
     return days;
     }
 
-    public void getDays(final CallBack callBack) {
+    public void getDays() {
 
         String units = (settings.isFahrenheit()? "imperial": "metric");
         apiClient.getForecast("Sofia", 7, "8be27535e8972fc0bbc15efb8f4a8bb8", units).enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 ApiResponse apiResponse = response.body();
-                List<Day> days = transform(apiResponse);
-                callBack.recieveDays(days);
+                 days = transform(apiResponse);
+                for (int i = 0; i<callBacks.size(); i ++){
+                    callBacks.get(i).recieveDays(days);
+                }
+
             }
 
             @Override
