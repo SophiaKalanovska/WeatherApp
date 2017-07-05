@@ -23,6 +23,7 @@ import com.example.sophiakalanovska.myapplication.data.Icon;
  */
 public class Details_Fragment extends Fragment {
 
+    ActionBar ab ;
 
     public static Details_Fragment newInstance(Day day) {
         Details_Fragment f = new Details_Fragment();
@@ -40,14 +41,10 @@ public class Details_Fragment extends Fragment {
 
         View secoundView = inflater.inflate(R.layout.detail, container, false);
 
-        // my_child_toolbar is defined in the layout file
-        Toolbar myChildToolbar =
-                (Toolbar) secoundView.findViewById(R.id.toolbarChild);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(myChildToolbar);
 
         // Get a support ActionBar corresponding to this toolbar
-        ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
 
+       ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setLogo(R.drawable.ic_sun_logo);
@@ -86,6 +83,14 @@ public class Details_Fragment extends Fragment {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ab.setDisplayHomeAsUpEnabled(false);
+        ab.setLogo(R.drawable.ic_logo);
     }
 }
 
