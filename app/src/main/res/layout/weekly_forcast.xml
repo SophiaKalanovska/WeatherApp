@@ -7,17 +7,20 @@
     android:layout_height="match_parent">
 
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        >
 
         <RelativeLayout
-
-
             android:id= "@+id/weather_today"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:background="@android:color/holo_blue_light"
             android:clickable="true"
+            android:layout_gravity="center_vertical|left"
             >
 
 
@@ -38,30 +41,6 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginEnd="12dp" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width= "162dp"
-                android:layout_height="115dp"
-                app:srcCompat="@drawable/art_clear"
-                android:gravity="right"
-                android:layout_below="@id/textToday"
-                android:layout_alignParentRight="true"
-                />
-
-            <TextView
-                android:id="@+id/textDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text = "description"
-                android:layout_margin="16dp"
-                android:textColor="@android:color/background_light"
-                android:layout_alignStart="@+id/imageView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/imageView" />
-
-
 
 
             <TextView
@@ -70,13 +49,16 @@
                 android:layout_height="wrap_content"
                 tools:text = "25° "
                 android:paddingLeft="16dp"
+                android:paddingTop="24dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display4"
                 android:textColor="@android:color/background_light"
                 android:fontFamily="sans-serif-condensed"
                 android:textSize="56sp"
                 android:layout_centerVertical="true"
                 android:layout_alignLeft="@+id/textToday"
-                android:layout_alignStart="@+id/textToday" />
+                android:layout_alignStart="@+id/textToday"
+                android:layout_below="@id/textToday"/>
+
 
             <TextView
                 android:id="@+id/mintemperatureToday"
@@ -89,12 +71,41 @@
                 android:textColor="@android:color/background_light"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
+                android:paddingTop="16dp"
                 android:layout_alignBottom="@+id/textDescription"
                 android:layout_alignLeft="@+id/maxtemperatureToday"
-                android:layout_alignStart="@+id/maxtemperatureToday" />
+                android:layout_alignStart="@+id/maxtemperatureToday"
+                android:layout_below="@id/maxtemperatureToday"/>
+</RelativeLayout>
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width= "162dp"
+            android:layout_height="115dp"
+            android:layout_marginTop = "40dp"
+            app:srcCompat="@drawable/art_clear"
+
+            />
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            tools:text = "description"
+            android:layout_margin="16dp"
+
+            android:textColor="@color/colorWhite" />
+        </LinearLayout>
 
 
-        </RelativeLayout>
+    </FrameLayout>
 
 
         <android.support.v7.widget.RecyclerView

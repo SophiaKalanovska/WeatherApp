@@ -102,11 +102,21 @@ public class MainActivity extends AppCompatActivity {
     public void openDetails(Day day) {
         Details_Fragment detail = Details_Fragment.newInstance(day);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, detail)
-                .addToBackStack(null)
-                .commit();
+        if ((findViewById(R.id.container2) == null)) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, detail)
+                    .addToBackStack(null)
+                    .commit();
+        }else{
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container2, detail)
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+
     }
 
 
